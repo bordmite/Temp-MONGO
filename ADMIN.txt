@@ -1,0 +1,20 @@
+https://mongodb.com
+Username: s.michael@outstandingdevops.com
+Password: born2023WORK/
+--------------------
+https://account.mongodb.com
+Username: smichael3890@gmail.com
+Password: no2023TABLES\
+--------------------
+https://cloud.mongodb.com
+Username: scott
+Password: work2023NOW
+
+
+Cluster: tanya
+User: scott
+Password: work2023NOW
+
+https://mongodb.com/try/download/shell
+
+https://mongodb.com/cloud/atlas

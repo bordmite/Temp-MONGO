@@ -1,0 +1,26 @@
+
+C:\Training\AAA_Udemy_MongoDB
+
+DOS SHELL
+-------------
+mongosh "mongodb+srv://tanya.mdv8jks.mongodb.net/myFirstDatabase" --apiVersion 1 --username scott
+
+work2023NOW
+
+
+COMPASS
+-------------
+mongodb+srv://scott:work2023NOW@tanya.mdv8jks.mongodb.net/test
+
+
+cd C:\Training\AAA_Udemy_MongoDB\installers\sample_training
+
+mongoimport --uri="mongodb+srv://scott:work2023NOW@tanya.mdv8jks.mongodb.net/sample_training" --collection=grades --file=grades.json
+
+mongodump --uri="mongodb+srv://scott:work2023NOW@tanya.mdv8jks.mongodb.net/sample_training" --collection=trips --file=exported_trips.json
+
+
+db.createCollection;{'test_col'}  
+db.dropDatabase()
+
+{"salary" : {$lt : 50000}}
