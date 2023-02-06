@@ -23,4 +23,21 @@ mongodump --uri="mongodb+srv://scott:work2023NOW@tanya.mdv8jks.mongodb.net/sampl
 db.createCollection;{'test_col'}  
 db.dropDatabase()
 
+COMPARISON OPERATORS (in mongosh)
+-------------------------
 {"salary" : {$lt : 50000}}
+db.trips.find({"start station id": { $in:[284,532] } } )
+db.trips.find( {"tripduration" :{$gt:400}})
+
+ db.trips.find( {$or:[ {"tripduration":{$gt:4000}} , {"birth year":{$lt:1950}} ]} 
+
+ db.trips.find({ "usertype":{$not:{$eq:"subscriber"}}} )
+
+ COMPARISON OPERATORS (in Atlas)
+ ------------------------
+{$and: [ {"tripduration" :{$gt:400}} , {"birth year":{$gt:1988}} ] }
+
+
+{$and: [ {"tripduration":{$lt:400}} , {"tripduration":{$gt:300}} ] }
+Shorter version of the same thing, if matching using the same collection more than once:
+{$and: [ {"tripduration":{$lt:400,$gt:300}} ] }
