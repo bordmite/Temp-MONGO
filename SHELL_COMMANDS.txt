@@ -41,3 +41,23 @@ db.trips.find( {"tripduration" :{$gt:400}})
 {$and: [ {"tripduration":{$lt:400}} , {"tripduration":{$gt:300}} ] }
 Shorter version of the same thing, if matching using the same collection more than once:
 {$and: [ {"tripduration":{$lt:400,$gt:300}} ] }
+
+TOTAL COUNT OF ITEMS
+------------------------
+db.trips.find().count()
+db.trips.find( {"tripduration": {$gt:300} } ).count()
+db.trips.find( {"tripduration": {$gt:300, $lt:400} } ).count()
+
+PROJECTION
+------------------------
+db.companies.find( {},{"name":1,"founded_year":1} )
+db.companies.find( {},{"name":1,"founded_year":1,"_id":0} )
+
+db.companies.find( {},{"name":1,"number_of_employees":1,"_id":0}).sort({"number_of_employees":-1}).limit(10)
+db.companies.find({"number_of_employees":{$gt:100000}}).count()
+
+
+
+
+
+
