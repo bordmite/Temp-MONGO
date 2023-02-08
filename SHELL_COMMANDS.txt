@@ -3,6 +3,7 @@ C:\Training\AAA_Udemy_MongoDB
 
 DOS SHELL
 -------------
+AS ADMINISTRATOR:
 mongosh "mongodb+srv://tanya.mdv8jks.mongodb.net/myFirstDatabase" --apiVersion 1 --username scott
 
 work2023NOW
@@ -47,17 +48,4 @@ TOTAL COUNT OF ITEMS
 db.trips.find().count()
 db.trips.find( {"tripduration": {$gt:300} } ).count()
 db.trips.find( {"tripduration": {$gt:300, $lt:400} } ).count()
-
-PROJECTION
-------------------------
-db.companies.find( {},{"name":1,"founded_year":1} )
-db.companies.find( {},{"name":1,"founded_year":1,"_id":0} )
-
-db.companies.find( {},{"name":1,"number_of_employees":1,"_id":0}).sort({"number_of_employees":-1}).limit(10)
-db.companies.find({"number_of_employees":{$gt:100000}}).count()
-
-
-
-
-
 
