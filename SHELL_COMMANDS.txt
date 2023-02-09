@@ -49,3 +49,18 @@ db.trips.find().count()
 db.trips.find( {"tripduration": {$gt:300} } ).count()
 db.trips.find( {"tripduration": {$gt:300, $lt:400} } ).count()
 
+MATCH 
+------------------------
+db.companies.aggregate([ {$match:{"founded_year":{$gte:2005,$lte:2010} } } , {$project:{"founded_year":1,"category_code":1,"_id":0} } ])
+db.zips.aggregate([ {$match:{"city":"HOUSTON","pop":{$gt:40000} } } , {$project:{"pop":1,"zip":1,"_id":0} } ])
+
+MATH - DIVISION
+------------------------
+db.trips.aggregate([ {$project:{"tripduration":1,"tripduration_hrs":{$divide:["$tripduration",60] }}}  ])
+
+REGEX
+------------------------
+db.trips.aggregate([ {$project:{"start station name":{$toUpper: "$start station name"} }}  ])
+
+
+
