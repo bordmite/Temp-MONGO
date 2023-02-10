@@ -62,5 +62,17 @@ REGEX
 ------------------------
 db.trips.aggregate([ {$project:{"start station name":{$toUpper: "$start station name"} }}  ])
 
+DATE
+------------------------
+db.trips.aggregate([ {$project:{"start time":1,"month_no":{$month:"$start time"}} }  ])
+
+CURSOR
+------------------------
+ db.trips.aggregate([ {$sort:{"tripduration":-1}},{$limit:5}])
+
+
+
+
+
 
 
