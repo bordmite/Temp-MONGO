@@ -20,6 +20,8 @@ mongoimport --uri="mongodb+srv://scott:work2023NOW@tanya.mdv8jks.mongodb.net/sam
 
 mongodump --uri="mongodb+srv://scott:work2023NOW@tanya.mdv8jks.mongodb.net/sample_training" --collection=trips --file=exported_trips.json
 
+mongorestore --uri="mongodb+srv://scott:work2023NOW@tanya.mdv8jks.mongodb.net/sample_mflix"  dump/sample_mflix
+
 
 db.createCollection;{'test_col'}  
 db.dropDatabase()
@@ -111,6 +113,7 @@ db.companies.aggregate([ {$project:{"founded_year":1,"number_of_employees":1,"na
     db.My_Company_Info_Report.find()
 
 
+
 --USING STAGES
 -----------------------
     stage1 = {$project:{"name":1,"number_of_employees":1,"_id":0}}
@@ -120,6 +123,30 @@ db.companies.aggregate([stage1,stage2,stage3])
 
     stage3 = {$limit:25}
 db.companies.aggregate([stage1,stage2,stage3])
+
+
+
+--SYSTEM-GENERATED VARIABLES
+-----------------------
+ db.grades.aggregate([ {$project:{"student_id":1,"scores":1,"class_id":1,"datetime":"$$NOW","timestamp":"$$CLUSTER_TIME","root document":"$$ROOT"}} ])
+ 
+ db.grades.aggregate([ {$group:{"_id":"$class_id","students":{"$push":"$$ROOT"}}} ])
+
+
+--EXPLAIN
+----------------------
+db.trips.explain().find({"start station id":476})
+db.trips.explain().find({"start station id":476}).count()
+
+same return set:
+db.trips.explain().find({"start station id":476}).explain("executionStats")
+db.trips.explain().find({"start station id":476}).explain("allPlansExecution")
+
+
+
+
+
+
 
 
 
